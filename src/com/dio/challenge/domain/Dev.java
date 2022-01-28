@@ -26,7 +26,7 @@ public class Dev {
     }
 
     public double calculateTotalXp() {
-        return this.subscribedContent
+        return this.completedContent
                 .stream()
                 .mapToDouble(Content::calculateXp)
                 .sum();

@@ -51,6 +51,8 @@ public class Main {
         devBruno.registerBootcamp(bootcamp);
         System.out.println("Subscribed contents: " + devBruno.getSubscribedContent());
         devBruno.progress();
+        devBruno.progress();
+        devBruno.progress();
         System.out.println("--");
         System.out.println("Subscribed contents: " + devBruno.getSubscribedContent());
         System.out.println("Completed contents: " + devBruno.getCompletedContent());
