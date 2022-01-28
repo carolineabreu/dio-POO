@@ -1,4 +1,6 @@
+import com.dio.challenge.domain.Bootcamp;
 import com.dio.challenge.domain.Course;
+import com.dio.challenge.domain.Dev;
 import com.dio.challenge.domain.Mentorship;
 
 import java.time.LocalDate;
@@ -20,10 +22,38 @@ public class Main {
         mentorship1.setDescription("Description java mentorship");
         mentorship1.setDate(LocalDate.now());
 
-        System.out.println(course1);
+        /*System.out.println(course1);
         System.out.println(course2);
-        System.out.println(mentorship1);
+        System.out.println(mentorship1);*/
 
-        
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setName("Bootcamp Java Developer");
+        bootcamp.setDescription("Description Bootcamp Java Developer");
+        bootcamp.getContents().add(course1);
+        bootcamp.getContents().add(course2);
+        bootcamp.getContents().add(mentorship1);
+
+        Dev devCarol = new Dev();
+        devCarol.setName("Carol");
+        devCarol.registerBootcamp(bootcamp);
+        System.out.println("Subscribed contents: " + devCarol.getSubscribedContent());
+        devCarol.progress();
+        devCarol.progress();
+        System.out.println("--");
+        System.out.println("Subscribed contents: " + devCarol.getSubscribedContent());
+        System.out.println("Completed contents: " + devCarol.getCompletedContent());
+        System.out.println("XP: " + devCarol.calculateTotalXp());
+
+        System.out.println("-------");
+
+        Dev devBruno = new Dev();
+        devBruno.setName("Bruno");
+        devBruno.registerBootcamp(bootcamp);
+        System.out.println("Subscribed contents: " + devBruno.getSubscribedContent());
+        devBruno.progress();
+        System.out.println("--");
+        System.out.println("Subscribed contents: " + devBruno.getSubscribedContent());
+        System.out.println("Completed contents: " + devBruno.getCompletedContent());
+        System.out.println("XP: " + devBruno.calculateTotalXp());
     }
 }
