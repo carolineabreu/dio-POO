@@ -1,40 +1,41 @@
 package com.dio.challenge.domain;
 
-public class ShortCourse extends Content {
-    private String subject;
-    private int duration;
 
-    @Override
-    public double calculateXp() {
-        return XP_DEFAULT + 10d;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Objects;
+import java.util.Set;
+
+public class ShortCourse {
+    private Set<Dev> registeredDevs = new HashSet<> ();
+    private Set<Content> contents = new LinkedHashSet<>();
+
+    public Set<Dev> getRegisteredDevs() {
+        return registeredDevs;
     }
 
-    public ShortCourse() {
+    public void setRegisteredDevs(Set<Dev> registeredDevs) {
+        this.registeredDevs = registeredDevs;
     }
 
-    public String getSubject() {
-        return subject;
+    public Set<Content> getContents() {
+        return contents;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
-    public int getDuration() {
-        return duration;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
+    public void setContents(Set<Content> contents) {
+        this.contents = contents;
     }
 
     @Override
-    public String toString() {
-        return "ShortCourse{" +
-                "title='" + getTitle() + '\'' +
-                ", description='" + getDescription() + '\'' +
-                ", subject='" + subject + '\'' +
-                ", duration=" + duration +
-                '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ShortCourse that = (ShortCourse) o;
+        return Objects.equals(registeredDevs, that.registeredDevs) && Objects.equals(contents, that.contents);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(registeredDevs, contents);
     }
 }
